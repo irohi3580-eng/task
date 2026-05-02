@@ -30,6 +30,10 @@ CRUD（追加・表示・編集・削除）機能を実装しています。
 pip install -r requirements.txt
 python app.py
 
+## 初期設定
+
+初回起動時にデータベースが自動作成されます。
+
 ## 今後の改善
 
 * ログイン機能の追加
