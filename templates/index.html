@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>タスク管理</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+  <h1 class="mb-4">タスク管理</h1>
+
+  <form action="/add" method="post" class="d-flex mb-3">
+    <input name="task" class="form-control me-2" placeholder="タスクを入力">
+    <button class="btn btn-primary">追加</button>
+  </form>
+
+  <ul class="list-group">
+
+  {% if tasks %}
+
+    {% for task in tasks %}
+      <li class="list-group-item d-flex justify-content-between">
+        {{ task["content"] }}
+
+        <div>
+          <a href="/edit/{{ task['id'] }}" class="btn btn-warning btn-sm">編集</a>
+          <a href="/delete/{{ task['id'] }}" class="btn btn-danger btn-sm">削除</a>
+        </div>
+      </li>
+    {% endfor %}
+
+  {% else %}
+    <p class="text-muted">タスクがありません</p>
+  {% endif %}
+
+  </ul>
+
+</div>
+
+</body>
+</html>
